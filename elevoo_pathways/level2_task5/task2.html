@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkMate - Manage Your Tasks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: #4a90e2;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .nav-links a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .cta-button {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #ff4040;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: #eaf3fc;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .section-title p {
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    /* Features */
+    .features-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 10px auto;
+      max-width: 500px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .pricing-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .pricing-card p {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px;
+    }
+
+    .pricing-card ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      margin-right: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>WorkMate</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="cta-button" id="get-started">Try Free</button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <h2 class="animate__animated animate__fadeInDown">Work Smarter, Not Harder</h2>
+        <p class="animate__animated animate__fadeInUp">WorkMate helps you streamline tasks, collaborate with teams, and boost productivity effortlessly.</p>
+        <button class="cta-button animate__animated animate__fadeIn" id="hero-cta">Get Started</button>
+    </header>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Why Choose WorkMate?</h2>
+            <p>Powerful tools designed to simplify your workflow and keep you focused.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate__animated animate__fadeInUp">
+                <div class="feature-icon">✅</div>
+                <h3>Smart Task Lists</h3>
+                <p>Organize tasks with categories, deadlines, and priorities.</p>
+            </div>
+            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="feature-icon">🔔</div>
+                <h3>Custom Reminders</h3>
+                <p>Set flexible reminders so you never miss an important task.</p>
+            </div>
+            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="feature-icon">🤝</div>
+                <h3>Team Collaboration</h3>
+                <p>Assign tasks, track progress, and collaborate in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Users Say</h2>
+            <p>Trusted by professionals, teams, and businesses worldwide.</p>
+        </div>
+        <div class="testimonial-card animate__animated animate__fadeIn">
+            <p>"WorkMate completely transformed how my team manages projects. Super easy to use!"</p>
+            <strong>- Sarah L.</strong>
+        </div>
+        <div class="testimonial-card animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+            <p>"Finally, a tool that keeps me organized and actually saves me time!"</p>
+            <strong>- James K.</strong>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="section-title">
+            <h2>Plans & Pricing</h2>
+            <p>Choose the plan that works best for you or your team.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card animate__animated animate__fadeInUp">
+                <h3>Starter</h3>
+                <p>$0 / month</p>
+                <ul>
+                    <li>Basic Task Lists</li>
+                    <li>5 Reminders / Month</li>
+                </ul>
+                <button class="cta-button">Start Free</button>
+            </div>
+            <div class="pricing-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <h3>Pro</h3>
+                <p>$12 / month</p>
+                <ul>
+                    <li>Unlimited Tasks</li>
+                    <li>Unlimited Reminders</li>
+                    <li>Team Features</li>
+                </ul>
+                <button class="cta-button">Go Pro</button>
+            </div>
+            <div class="pricing-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <h3>Business</h3>
+                <p>$39 / month</p>
+                <ul>
+                    <li>Everything in Pro</li>
+                    <li>Advanced Analytics</li>
+                    <li>Priority Support</li>
+                </ul>
+                <button class="cta-button">Get Business</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>WorkMate</h3>
+                <p>Helping you simplify, organize, and achieve more every day.</p>
+                <div class="social-links">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">TW</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li>support@workmate.com</li>
+                    <li>+1 555 123 4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 WorkMate. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"], #get-started, #hero-cta').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href') || '#pricing');
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
