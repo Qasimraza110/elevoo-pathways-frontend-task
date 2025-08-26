@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    form h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    form p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin: -5px 0 10px 0;
+      display: none;
+    }
+
+    .success {
+      color: green;
+      font-size: 14px;
+      margin: 10px 0;
+      display: none;
+      text-align: center;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h2>Contact Me</h2>
+    <p>Fill out the form and I’ll reply soon!</p>
+
+    <label>Your Name</label>
+    <input type="text" name="name" placeholder="Name" required>
+
+    <label>Email</label>
+    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+    <div class="error" id="emailError">Please enter a valid email address.</div>
+
+    <label>Subject</label>
+    <input type="text" name="subject" placeholder="Project Inquiry" required>
+
+    <label>Message</label>
+    <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+    <button type="submit">Send Message</button>
+    <div class="success" id="successMsg">✅ Your message has been sent!</div>
+  </form>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); 
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailInput.value.match(emailPattern)) {
+        emailError.style.display = "block";
+        emailInput.style.borderColor = "red";
+        successMsg.style.display = "none";
+      } else {
+        emailError.style.display = "none";
+        emailInput.style.borderColor = "#4facfe";
+        successMsg.style.display = "block";
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
